@@ -1,3 +1,5 @@
+import time
+
 class Field:
     def __init__(self):
         self._fieldSize = 0
@@ -16,13 +18,19 @@ class Field:
         return tempArray
 
     def _showField(self):
-        print("\n=> ПОЛЕ:")
-        for row in self._field:
-            for column in row:
-                print("\t\t", str(column), end="")
-            print("\n")
+        while(True):
+            print("\n=> ПОЛЕ:")
+            for row in self._field:
+                for column in row:
+                    print("\t\t", str(column), end="")
+                print("\n")
+            time.sleep(0.5)
+
     def getField(self):
         return self._field
+
+    def setField(self, newFieldOBJ):
+        self._field = newFieldOBJ
 
     def deleteFromField(self, coordinateX, coordinateY):
         self._field[coordinateX][coordinateY] = "."
