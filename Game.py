@@ -13,14 +13,14 @@ class Game:
 
     def startGame(self):
         field = self._field.getField()
-        self._snake.setCoordinateX(random.randint(0, len(field) - 1))
-        self._snake.setCoordinateY(random.randint(0, len(field[0]) - 1))
-        self._field.setSnakeOnField(self._snake)
+        self._snake.addNewHead(random.randint(0, len(field) - 1), random.randint(0, len(field[0]) - 1), self._field)
+        self._snake.setSnakeOnField(self._field)
 
         isSnakeAlive = True
         while(isSnakeAlive):
-            self._snake.setDirectionOfMovement(dirictionsOfMovement[1])
+            self._snake.setDirectionOfMovement(dirictionsOfMovement[4])
             self._snake.move(self._field)
             showingThread = threading.Thread(target=self._field._showField, args=())
             showingThread.start()
+            showingThread.join()
             time.sleep(0.5)

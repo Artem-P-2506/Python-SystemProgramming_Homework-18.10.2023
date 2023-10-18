@@ -12,7 +12,7 @@ class Field:
         for i in range(self._fieldSize):
             tempArray.append([])
             for j in range(self._fieldSize):
-                tempArray[i].append("-")
+                tempArray[i].append(".")
         return tempArray
 
     def _showField(self):
@@ -24,5 +24,8 @@ class Field:
     def getField(self):
         return self._field
 
-    def setSnakeOnField(self, snakeOBJ):
-        self._field[snakeOBJ.getCoordinateX()][snakeOBJ.getCoordinateY()] = snakeOBJ.getHeadSimbol()
+    def deleteFromField(self, coordinateX, coordinateY):
+        self._field[coordinateX][coordinateY] = "."
+
+    # def setSnakeOnField(self, snakeOBJ):
+    #     self._field[snakeOBJ.getCoordinateX()][snakeOBJ.getCoordinateY()] = snakeOBJ.getHeadSimbol()
